@@ -1,23 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MatToolbarModule, MatToolbarRow } from '@angular/material/toolbar';
+import { ReactiveFormsModule } from '@angular/forms';
+import {AngularFireModule} from '@angular/fire';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BillsModule } from './modules/bills/bills.module';
+import { environment } from 'src/environments/environment';
+import { SignupComponent } from './modules/signup/signup.component';
+import { SignupModule } from './modules/signup/signup.module';
+import {AdminModule} from './modules/admin/admin.module';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    BillsModule
+    BillsModule,
+    SignupModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

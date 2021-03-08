@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bill-system-b1453": {
+      "hosting": {
+        "bill-system": [
+          "bill-system-b1453"
+        ]
+      }
+    }
+  }
+}

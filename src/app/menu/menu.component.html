@@ -4,8 +4,16 @@
     </div>
     <div>
         <nav>
-            <a routerLink="/" routerLinkActive="true" matbutton>Home</a>
-            <a routerLink="/bills" routerLinkActive="true" matbutton>Bills</a>
+            <a routerLink="/home" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+                true}" matbutton> Home </a>
+            <a routerLink="/bills" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+                true}" matbutton> Bills </a>
+            <a routerLink="/login" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+             true}"> Login </a>
+            <a routerLink="/signup" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+                true}" matbutton> SignUp </a>
+          <a routerLink="/" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+                true}" matbutton> Logout </a>
         </nav>
     </div>
 </mat-toolbar>
