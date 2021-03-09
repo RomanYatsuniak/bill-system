@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   loginWithEmail(email: string, password: string): void {
-    this.authService.authWithEmail(email, password).then(data => console.log(data));
+    this.authService.authWithEmail(email, password);
   }
-  // async loginGoogle(): Promise<any> {
-  //   return await this.authService.authWithGoogle();
-  // }
+  loginGoogle(): void{
+    this.authService.authWithGoogle();
+  }
 
 }

@@ -1,7 +1,7 @@
 <app-auth title="Login" height="login-height">
   <app-login-form (submitData)="loginWithEmail($event.email, $event.password)"></app-login-form>
   <div class=logos>
-    <img src="../../../assets/icons/google-logo.png" alt="google" class="google-logo">
+    <img (click)="loginGoogle()" src="../../../assets/icons/google-logo.png" alt="google" class="google-logo">
   </div>
 </app-auth>
 

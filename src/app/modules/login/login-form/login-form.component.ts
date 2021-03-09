@@ -20,6 +20,7 @@ export class LoginFormComponent implements OnInit {
   });
   @Output() submitData = new EventEmitter<{email: string, password: string}>();
   constructor(public validService: ValidService) { }
+
   ngOnInit(): void {
   }
 
