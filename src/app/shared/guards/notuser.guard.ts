@@ -18,6 +18,9 @@ export class NotuserGuard implements CanActivate {
       console.log(this.auth);
       return true;
     } else {
+
+
+
       this.router.navigate(['/home']);
       console.log(false);
       return false;
