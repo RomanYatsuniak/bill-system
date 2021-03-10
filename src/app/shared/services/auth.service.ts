@@ -1,11 +1,12 @@
 import {Injectable, NgZone} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {Router} from '@angular/router';
+import {Resolve, Router} from '@angular/router';
 import firebase from 'firebase/app';
-import {Observable} from 'rxjs';
+import {Observable, of, BehaviorSubject} from 'rxjs';
 import { User } from '../../shared/models/user.model';
 import {Admin} from '../models/admin.model';
+import {catchError} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class AuthService {
   isAdmin = false;
   isAuthanticated = false;
   userData: any;
+  errMessage = new BehaviorSubject<string>('');
   constructor(
     public fireAuth: AngularFireAuth,
     public fireStore: AngularFirestore,
@@ -50,9 +52,11 @@ export class AuthService {
     alert('Currently do not work');
   }
 
-  authWithEmail(email, password): void {
-    this.fireAuth.signInWithEmailAndPassword(email, password).then(res => {
-      this.fireStore.collection('users').doc(res.user.uid).get().subscribe(user => {
+  // tslint:disable-next-line:typedef
+  async authWithEmail(email, password) {
+      const res = await this.fireAuth.signInWithEmailAndPassword(email, password);
+      const collection = await this.fireStore.collection('users').doc(res.user.uid).get();
+      collection.subscribe(user => {
         const userData = user.data();
         if ((userData as Admin).admin === true) {
           this.isAdmin = true;
@@ -63,9 +67,7 @@ export class AuthService {
           this.router.navigate(['/home']);
         }
       });
-    }).catch(err => alert('Not correct data, please try more'));
-  }
-
+    }
   logout(): void {
     if (this.isAdmin || this.isAuthanticated) {
       this.isAdmin = false;
