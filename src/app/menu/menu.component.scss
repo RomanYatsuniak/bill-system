@@ -1,3 +1,4 @@
+@import "src/assets/css/variables";
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -9,13 +10,14 @@ a {
     border-radius: 3px;
     text-decoration: none;
     color: white;
+    margin-left: 10px;
 
     &:hover {
         background-color: #723dc9;
         color: grey;
     }
 
-    @media screen and(max-width: 576px) {
+    @media screen and(max-width: $sm) {
         display: none;
     }
 }

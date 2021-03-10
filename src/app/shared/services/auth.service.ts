@@ -10,15 +10,14 @@ import {Admin} from '../models/admin.model';
   providedIn: 'root'
 })
 export class AuthService {
-  isAdmin: boolean;
-  isAuthanticated: boolean;
+  isAdmin = false;
+  isAuthanticated = false;
   userData: any;
   constructor(
     public fireAuth: AngularFireAuth,
     public fireStore: AngularFirestore,
     public ngZone: NgZone,
     public router: Router) {
-    console.log('Constructor');
     this.fireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -30,32 +29,32 @@ export class AuthService {
   }
   signup(data: User): void {
     this.fireAuth.createUserWithEmailAndPassword(data.email, data.password).then((res) => {
-      console.log(data);
       return this.fireStore.collection('users').doc(res.user.uid).set({
-        name: data.firstName,
+        firstName: data.firstName,
         surname: data.surname,
         age: data.age,
         address: data.address,
       });
-    }).then(col => this.router.navigate(['home']))
+    }).then(col => this.router.navigate(['/']))
       .catch(err => alert('write correct data or if user already exist, login'));
   }
 
   authWithGoogle(): void {
-    this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(data => {
-      if (data.user) {
-        this.router.navigate(['/home']);
-      }
-    });
+    // this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(data => {
+    //   if (data.user) {
+    //     console.log(data.user.displayName);
+    //     this.isAuthanticated = true;
+    //     this.router.navigate(['/home']);
+    //   }
+    // });
+    alert('Currently do not work');
   }
 
   authWithEmail(email, password): void {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(res => {
       this.fireStore.collection('users').doc(res.user.uid).get().subscribe(user => {
         const userData = user.data();
-        console.log(userData);
         if ((userData as Admin).admin === true) {
-
           this.isAdmin = true;
           this.router.navigate(['/admin']);
         } else {
@@ -68,9 +67,13 @@ export class AuthService {
   }
 
   logout(): void {
-    this.isAdmin = false;
-    this.isAuthanticated = false;
-    this.userData = null;
-    this.router.navigate(['/']);
+    if (this.isAdmin || this.isAuthanticated) {
+      this.isAdmin = false;
+      this.isAuthanticated = false;
+      this.userData = null;
+      this.router.navigate(['/logout']);
+    } else {
+      alert('User is not logged in');
+    }
   }
 }

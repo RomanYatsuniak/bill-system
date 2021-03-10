@@ -4,18 +4,23 @@ import { AuthComponent } from './components/auth/auth.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 const modules = [
   MatButtonModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatTableModule
 ];
 
 @NgModule({
   declarations: [AuthComponent],
   imports: [
-    ...modules,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
     CommonModule,
   ],
   exports: [

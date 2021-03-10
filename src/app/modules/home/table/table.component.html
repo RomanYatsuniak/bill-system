@@ -1,0 +1,27 @@
+<mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="consumed">
+    <mat-header-cell *matHeaderCellDef> Consumed </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.consumed}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.price | currency}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="total">
+    <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.total | currency}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

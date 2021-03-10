@@ -18,6 +18,8 @@ import {AdminModule} from './modules/admin/admin.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {HttpClientModule} from '@angular/common/http';
+import {MatCell, MatHeaderCell, MatHeaderRow, MatTable} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     BillsModule,
     SignupModule,
+    HttpClientModule,
     AdminModule
   ],
   providers: [],

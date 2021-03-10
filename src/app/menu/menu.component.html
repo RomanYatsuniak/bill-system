@@ -4,16 +4,15 @@
     </div>
     <div>
         <nav>
-            <a routerLink="/home" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+            <a *ngIf="auth.isAuthanticated" routerLink="/home" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
                 true}" matbutton> Home </a>
-            <a routerLink="/bills" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+            <a *ngIf="auth.isAuthanticated" routerLink="/bills" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
                 true}" matbutton> Bills </a>
-            <a routerLink="/login" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+            <a *ngIf="!auth.isAuthanticated && !auth.isAdmin" routerLink="/login" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
              true}"> Login </a>
-            <a routerLink="/signup" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
+            <a *ngIf="!auth.isAuthanticated && !auth.isAdmin" routerLink="/signup" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
                 true}" matbutton> SignUp </a>
-          <a routerLink="/" routerLinkActive="clicked" [routerLinkActiveOptions]="{exact:
-                true}" matbutton> Logout </a>
+          <a *ngIf="auth.isAuthanticated || auth.isAdmin" (click)="onLogout()" matbutton [ngStyle]="{'cursor': 'pointer'}"> Logout </a>
         </nav>
     </div>
 </mat-toolbar>
