@@ -13,21 +13,20 @@ import {catchError} from 'rxjs/operators';
 export class AuthService {
   isAdmin = false;
   isAuthanticated = false;
-  userData: any;
-  errMessage = new BehaviorSubject<string>('');
+  userData = null;
   constructor(
     public fireAuth: AngularFireAuth,
     public fireStore: AngularFirestore,
     public ngZone: NgZone,
     public router: Router) {
-    this.fireAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(user));
-      } else {
-        localStorage.setItem('user', null);
-      }
-    });
+    // this.fireAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     this.userData = (user as User);
+    //     localStorage.setItem('user', JSON.stringify(user));
+    //   } else {
+    //     localStorage.setItem('user', null);
+    //   }
+    // });
   }
   signup(data: User): void {
     this.fireAuth.createUserWithEmailAndPassword(data.email, data.password).then((res) => {
@@ -55,15 +54,15 @@ export class AuthService {
   // tslint:disable-next-line:typedef
   async authWithEmail(email, password) {
       const res = await this.fireAuth.signInWithEmailAndPassword(email, password);
-      const collection = await this.fireStore.collection('users').doc(res.user.uid).get();
-      collection.subscribe(user => {
-        const userData = user.data();
-        if ((userData as Admin).admin === true) {
+      const collection$ = await this.fireStore.collection('users').doc(res.user.uid).get();
+      collection$.subscribe(user => {
+        this.userData = user.data();
+        if ((this.userData as Admin).admin) {
           this.isAdmin = true;
           this.router.navigate(['/admin']);
         } else {
+          this.userData.uid = res.user.uid;
           this.isAuthanticated = true;
-          this.userData = userData;
           this.router.navigate(['/home']);
         }
       });

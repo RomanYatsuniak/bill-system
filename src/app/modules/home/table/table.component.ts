@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TableRows} from '../../../shared/models/tableRows.model';
+import {Table} from '../../../shared/models/table.model';
 
 @Component({
   selector: 'app-table',
@@ -6,16 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  data = [
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-    {name: 'electricity', consumed: '2', price: '4', total: '8'},
-  ];
+  @Input() rows: TableRows[];
+  @Input() date: string;
   displayedColumns: string[] = ['name', 'consumed', 'price', 'total'];
   constructor() { }
 

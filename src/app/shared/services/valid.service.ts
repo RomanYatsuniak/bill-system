@@ -10,6 +10,7 @@ export class ValidService {
     // console.log(this.fireStore.doc('/users'))
   }
 
+  // tslint:disable-next-line:typedef
   validPasswords(pass, repPas) {
 
   }

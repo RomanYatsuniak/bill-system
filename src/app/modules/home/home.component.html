@@ -1,2 +1,2 @@
-<h1>Hello {{user.firstName}}</h1>
-<app-table></app-table>
+<h1>Hello {{authService.userData.firstName}}</h1>
+<app-table [date]="table.date" [rows]="table.rows" *ngFor="let table of tables"></app-table>
