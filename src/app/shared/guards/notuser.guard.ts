@@ -15,14 +15,9 @@ export class NotUserGuard implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.auth.isAuthanticated) {
-      console.log(this.auth);
       return true;
     } else {
-
-
-
       this.router.navigate(['/home']);
-      console.log(false);
       return false;
     }
   }

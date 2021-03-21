@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminComponent} from './admin.component';
 import {AdminGuard} from '../../shared/guards/admin.guard';
 
-const routes: Routes = [{
-  path: '', component: AdminComponent
-}];
+const routes: Routes = [
+  {path: '', redirectTo: 'users', pathMatch: 'full'},
+  {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule), canActivate: [AdminGuard]}
+  ];
 
 @NgModule({
   declarations: [],

@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCell, MatHeaderCell, MatHeaderRow, MatTable} from '@angular/material/table';
+import {HomeModule} from './modules/home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +38,7 @@ import {MatCell, MatHeaderCell, MatHeaderRow, MatTable} from '@angular/material/
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    BillsModule,
-    SignupModule,
-    HttpClientModule,
-    AdminModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,16 @@
-<p>bills works!</p>
+<div class="bills-page">
+  <div class="price-list">
+    <h2 style="text-align: center;">Prices</h2>
+    <mat-list *ngIf="prices; else empty" class="list">
+      <mat-list-item role="listitem">Electricity - {{prices.electricity | currency}}</mat-list-item>
+      <mat-list-item role="listitem">Gas - {{prices.gas | currency}}</mat-list-item>
+      <mat-list-item role="listitem">Heat - {{prices.heat | currency}}</mat-list-item>
+      <mat-list-item role="listitem">Maintenance - {{prices.maintenance | currency}}</mat-list-item>
+      <mat-list-item role="listitem">Water - {{prices.water | currency}}</mat-list-item>
+    </mat-list>
+    <ng-template #empty>
+      <div >No info</div>
+    </ng-template>
+  </div>
+</div>
+

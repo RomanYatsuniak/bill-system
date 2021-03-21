@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -12,7 +13,8 @@ const modules = [
   MatButtonModule,
   MatInputModule,
   MatFormFieldModule,
-  MatTableModule
+  MatTableModule,
+  MatListModule
 ];
 
 @NgModule({
@@ -21,6 +23,7 @@ const modules = [
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
+    MatListModule,
     CommonModule,
   ],
   exports: [

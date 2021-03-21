@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,13 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    // this.authService.errMessage.subscribe(suc => {
-    //   console.log(suc);
-    // });
+
   }
+
   loginWithEmail(email: string, password: string): void {
     this.authService.authWithEmail(email, password);
   }
+
   loginGoogle(): void{
     this.authService.authWithGoogle();
   }

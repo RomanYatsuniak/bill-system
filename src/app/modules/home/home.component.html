@@ -1,2 +1,9 @@
 <h1>Hello {{authService.userData.firstName}}</h1>
-<app-table [date]="table.date" [rows]="table.rows" *ngFor="let table of tables"></app-table>
+<ng-container *ngIf="tables != null; else empty" >
+  <app-table [date]="table.date" [rows]="table.rows" *ngFor="let table of tables"></app-table>
+</ng-container>
+<ng-template #empty>
+  <div class="no-data">
+    No data
+  </div>
+</ng-template>

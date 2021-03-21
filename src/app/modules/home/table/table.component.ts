@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TableRows} from '../../../shared/models/tableRows.model';
-import {Table} from '../../../shared/models/table.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { TableRows } from '../../../shared/models/tableRows.model';
 
 @Component({
   selector: 'app-table',

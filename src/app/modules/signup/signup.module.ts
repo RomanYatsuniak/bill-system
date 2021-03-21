@@ -5,9 +5,6 @@ import { SignupComponent } from './signup.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 

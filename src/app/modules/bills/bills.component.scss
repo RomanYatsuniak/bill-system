@@ -1,0 +1,13 @@
+.bills-page {
+  height: calc(100% - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .price-list {
+    .mat-list-item-content {
+      margin: 0 auto;
+    }
+  }
+}
+
