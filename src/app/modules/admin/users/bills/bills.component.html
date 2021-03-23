@@ -1,0 +1,27 @@
+<div class="add-btn">
+  <button mat-mini-fab color="primary" (click)="addUserBill()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div class="list">
+<div *ngIf="!bills.length; else billsList">
+  No Bills
+</div>
+<ng-template #billsList>
+  <div class="admin-list">
+    <mat-list>
+      <mat-list-item *ngFor="let bill of bills">
+        <div class="admin-info">
+          <div>
+            {{bill.date}}
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="changeBill(bill.id)">ChangeBill</button>
+            <button mat-raised-button color="warn" (click)="removeBill(bill.id)">DeleteBill</button>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</ng-template>
+</div>

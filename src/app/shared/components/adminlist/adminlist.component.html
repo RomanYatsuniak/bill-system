@@ -1,0 +1,26 @@
+<!--<ng-container>-->
+<!--  <div *ngIf="data.length == 0 else dataList">-->
+<!--    <div>No one {{listName}} exist</div>-->
+<!--  </div>-->
+<!--  <ng-template #dataList>-->
+<!--    <div class="data-list">-->
+<!--      <mat-list>-->
+<!--        <mat-list-item *ngFor="let d of data">-->
+<!--          <div class="data-info">-->
+<!--            <div *ngIf="listName === 'users'; else bills">-->
+<!--              {{d.firstName}} {{d.surname}}-->
+<!--            </div>-->
+<!--            <ng-template #bills>-->
+<!--              {{d.date}}-->
+<!--            </ng-template>-->
+<!--            <div>-->
+<!--              <button mat-raised-button color="primary" (click)="changeBills(user.uid)">ChangeUserBills</button>-->
+<!--              <button mat-raised-button color="primary" (click)="changeUser(user.uid)">ChangeUserInfo</button>-->
+<!--              <button mat-raised-button color="warn" (click)="removeUser(user.uid)">DeleteUser</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </mat-list-item>-->
+<!--      </mat-list>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+<!--&lt;!&ndash;</ng-container>&ndash;&gt;-->

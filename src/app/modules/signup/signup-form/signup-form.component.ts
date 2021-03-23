@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../shared/models/user.model';
 
@@ -17,7 +17,7 @@ export class SignupFormComponent implements OnInit {
     age: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required)
   });
-
+  @Input() buttonTitle;
   @Output() submitData = new EventEmitter<User>();
   constructor() { }
 

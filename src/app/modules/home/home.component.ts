@@ -7,6 +7,7 @@ import { zip } from 'rxjs';
 import { UtilsService } from '../../shared/services/utils.service';
 import { Table } from '../../shared/models/table.model';
 import { UserService } from '../../shared/services/user.service';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
               public authService: AuthService,
               public userService: UserService,
               public dataService: DataService,
-              public utilsService: UtilsService
+              public utilsService: UtilsService,
+              public fireAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {

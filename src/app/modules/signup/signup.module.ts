@@ -9,15 +9,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    SignupComponent,
-    SignupFormComponent
-  ],
-  imports: [
-    SignupRoutingModule,
-    CommonModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        SignupComponent,
+        SignupFormComponent
+    ],
+    exports: [
+        SignupFormComponent
+    ],
+    imports: [
+        SignupRoutingModule,
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule
+    ]
 })
 export class SignupModule { }

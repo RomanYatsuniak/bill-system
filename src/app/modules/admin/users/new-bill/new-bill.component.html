@@ -1,0 +1,29 @@
+<div class="changing-form">
+  <form (ngSubmit)="addBill()" [formGroup]="newBillForm" class="form">
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput name="date" type="text" formControlName="date">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Electricity</mat-label>
+      <input matInput name="electricity" type="text" formControlName="electricity">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Gas</mat-label>
+      <input matInput name="gas" type="text" formControlName="gas">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Heat</mat-label>
+      <input matInput name="heat" type="text" formControlName="heat">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Maintenance</mat-label>
+      <input matInput name="maintenance" type="text" formControlName="maintenance">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Water</mat-label>
+      <input matInput name="water" type="text" formControlName="water">
+    </mat-form-field>
+    <button mat-raised-button class="change-button" [disabled]="!newBillForm.valid">Change</button>
+  </form>
+</div>

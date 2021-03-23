@@ -1,0 +1,22 @@
+<div class="changing-form">
+  <form [formGroup]="changeForm" (ngSubmit)="changeUserInfo()" class="form">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput name="firstName" type="text" formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Surname</mat-label>
+      <input matInput name="surname" type="text" formControlName="surname">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input matInput name="address" type="text" formControlName="address">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput name="age" type="text" formControlName="age">
+    </mat-form-field>
+    <button mat-raised-button class="change-button" [disabled]="!changeForm.valid">Change</button>
+  </form>
+</div>
+

@@ -2,9 +2,18 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-}
 
-a {
+    svg {
+      margin-top: 7px;
+      cursor: pointer;
+      transition: all .7s linear;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+  a {
     display: inline-block;
     padding: 4px 20px;
     border-radius: 3px;
@@ -13,17 +22,18 @@ a {
     margin-left: 10px;
 
     &:hover {
-        background-color: #723dc9;
-        color: grey;
+      background-color: #723dc9;
+      color: grey;
     }
 
     @media screen and(max-width: $sm) {
-        display: none;
+      display: none;
     }
+  }
 }
 
 .clicked {
-    border: 1px solid white;
-    background-color: #723dc9;
-    color: grey;
+  border: 1px solid white;
+  background-color: #723dc9;
+  color: grey;
 }

@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -14,7 +15,8 @@ const modules = [
   MatInputModule,
   MatFormFieldModule,
   MatTableModule,
-  MatListModule
+  MatListModule,
+  MatIconModule,
 ];
 
 @NgModule({

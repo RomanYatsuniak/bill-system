@@ -1,0 +1,21 @@
+<div *ngIf="users.length == 0 else usersList">
+  <div>No one user exist</div>
+</div>
+<ng-template #usersList>
+  <div class="admin-list">
+    <mat-list>
+      <mat-list-item *ngFor="let user of users">
+        <div class="admin-info">
+          <div>
+            {{user.firstName}} {{user.surname}}
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="changeBills(user.uid)">ChangeUserBills</button>
+            <button mat-raised-button color="primary" (click)="changeUser(user.uid)">ChangeUserInfo</button>
+            <button mat-raised-button color="warn" (click)="removeUser(user.uid)">DeleteUser</button>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</ng-template>

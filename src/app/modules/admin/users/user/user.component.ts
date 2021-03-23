@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Routes} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {UserService} from '../../../../shared/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -8,11 +11,11 @@ import {ActivatedRoute, Routes} from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute, public userService: UserService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(param => {
-      console.log(param.get('id'));
+      this.userService.getUserInfo(param.get('id')).subscribe(user => console.log(user));
     });
   }
 

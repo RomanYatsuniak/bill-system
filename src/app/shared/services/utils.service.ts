@@ -21,7 +21,7 @@ export class UtilsService {
       date: undefined,
       rows: []
     };
-    const {date, ...filteredBill} = bill;
+    const {date, id, ...filteredBill} = bill;
     const countedPrices = this.countPrice(filteredBill, prices);
     table.date = bill.date ? date : null;
     Object.keys(filteredBill)
